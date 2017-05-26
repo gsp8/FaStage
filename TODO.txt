@@ -1,0 +1,9 @@
++ inserisci azienda
++ attributo quantità posti disponibili / quantità totale
++ tipologia (combobox)
++ recensioni
++ lavorain (aggiunta referente aziendale + numero tel + email) (giorno appuntamento + promemoria)
++ bluefish php (algoritmo crittograf)
++ amministratore vede la sua classe e info su studenti (se andato appuntamento, se consegnato carte, se definito periodo)
++ amministratore nomina amministratore
++ aggiungere aree funzionali

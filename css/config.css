@@ -1,0 +1,73 @@
+.testata{
+height: 10%;
+width: 100%;
+border-bottom:1px solid green;
+
+}
+.html{
+    overflow: hidden;
+}
+body {
+   /* background: linear-gradient(-180deg, rgba(68,198,173,1)0%, rgba(114,116,153,122)50%, rgba(228,164,157,222) 100%);
+
+background: -moz-linear-gradient(center, #00D4FF, #ffffff);
+background: -ms-linear-gradient(center, #00D4FF, #ffffff);
+background: -webkit-linear-gradient(center, #00D4FF, #ffffff);*/
+   
+   background: linear-gradient(-180deg, whitesmoke,grey);
+}
+
+.cont{
+    width: 100%;
+}
+.logo{
+position: absolute;
+top: 0;
+font-family: 'Josefin Sans Std Light', serif;
+font-size: 48px;
+float: left;
+}
+
+.logo, .login{display: inline;}
+
+.login {
+height: 40%;
+top: 0;
+padding: 20px;
+float: right;
+}
+
+.descrizione{
+    position: absolute;
+font-family: 'Josefin Sans Std Light', serif;
+font-size: 35px;
+float: left;
+width: 50%;
+left: 0;
+
+}
+.iscrizione h2{
+font-family: 'Josefin Sans Std Light', serif;
+font-size: 35px;
+}
+.iscrizione{
+    position: absolute;
+    float: right;
+    width: 50%;
+    right: 0;
+    border-left:1px solid green;
+    padding: 20px;
+}
+
+.iscrizione, .descrizione{display: inline;}
+
+
+.footer{
+    font-family: 'Josefin Sans Std Light',serif;
+    font-size: 17px;
+    bottom:0;
+    height:55px;
+    position:absolute;
+    width:100%;
+    text-align:center;
+}

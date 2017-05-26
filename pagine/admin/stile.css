@@ -1,0 +1,11 @@
+input[type=text]{
+    border: none;
+    width: auto;
+    max-width: 200px;
+    background-color: transparent;
+}
+
+.classeAccettata
+{
+    max-width: 100px;
+}
