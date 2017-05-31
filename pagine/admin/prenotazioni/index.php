@@ -67,7 +67,7 @@ $query = mysqli_query($link, "SELECT MIN(ID) AS min FROM prenotazioni") or die(m
 $min = mysqli_fetch_array($query);
 $query2 = mysqli_query($link, "SELECT MAX(ID) AS max FROM prenotazioni") or die(mysqli_error($link));
 $max = mysqli_fetch_array($query2);
-for($x=$min['min'];$x<$max['max'];$x++)
+for($x=$min['min'];$x<=$max['max'];$x++)
 {
 if(isset($_POST[$x]))
     {

@@ -47,7 +47,10 @@ while(($table = mysqli_fetch_array($risp)))
    $web=$table['Web'];
    $note=$table['Note'];
    $classeAccettata=$table['ClasseAccettata'];
-
+   $postiDisponibili = $table['PostiDisponibili'];
+   $query3 = mysqli_query($link, "SELECT COUNT(*) AS occupati FROM prenotazioni WHERE Azienda='$i' AND Conferma='1'");
+   $posti= mysqli_fetch_array($query3);
+   $postiOccupati = $posti['occupati'];
    if($nome==NULL)
        {
        $nome='Nome mancante';
@@ -86,7 +89,16 @@ while(($table = mysqli_fetch_array($risp)))
 <div class='w3-container'>
 <form action='#' method='POST'>
   <div class='w3-card-4' style='width:70%'>
-    <header class='w3-container w3-light-grey'>
+    <header class='w3-container w3-light-grey'>";
+    if($postiDisponibili==$postiOccupati)
+    {
+        echo "<h3 style='float:right;color:red;'><span class='glyphicon glyphicon-user'></span>   $postiOccupati / $postiDisponibili</h3>";
+    }
+    else
+    {
+        echo "<h3 style='float:right;color:green;'><span class='glyphicon glyphicon-user'></span>   $postiOccupati / $postiDisponibili</h3>";
+    }
+    echo "
       <h3 style='text-transform:uppercase;'>$nome<small> $comune</small></h3>
     </header>
     <div class='w3-container'>
@@ -127,9 +139,10 @@ $i++;
 $query2 = mysqli_query($link, "SELECT MIN(ID) AS idMin FROM aziende") or die(mysqli_error($link));
 $idMin = mysqli_fetch_array($query2) ;
 
+$query3 = mysqli_query($link, "SELECT MAX(ID) AS idMax FROM aziende") or die(mysqli_error($link));
+$idMax = mysqli_fetch_array($query3) ;
 
-
-  for($x=$idMin['idMin'];$x<2000;$x++){
+  for($x=$idMin['idMin'];$x<=$idMax['idMax'];$x++){
 
         if (isset($_POST[$x]))
 {
