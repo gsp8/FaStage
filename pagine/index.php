@@ -28,12 +28,15 @@ alertify.defaults.glossary.title = 'FaStage info';
     <body>
 
         <?php
+
         require 'admin/menuAdmin.php';
         require '../connect.php';
         $query = "SELECT * FROM aziende";
-
+        $myprof = $_SESSION['user'];
 $risp = mysqli_query($link, $query) or die("Errore " . mysql_error());
-
+$query2 = mysqli_query($link, "SELECT MIN(ID) AS idMin FROM aziende") or die(mysqli_error($link)); 
+$idMin = mysqli_fetch_array($query2) ;
+$i=$idMin['idMin'];
 while(($table = mysqli_fetch_array($risp)))
  {
    $nome =$table['Azienda'];
@@ -81,7 +84,7 @@ while(($table = mysqli_fetch_array($risp)))
 <body>
 <center>
 <div class='w3-container'>
-
+<form action='#' method='POST'>
   <div class='w3-card-4' style='width:70%'>
     <header class='w3-container w3-light-grey'>
       <h3 style='text-transform:uppercase;'>$nome<small> $comune</small></h3>
@@ -95,9 +98,9 @@ while(($table = mysqli_fetch_array($risp)))
       <p><span class='glyphicon glyphicon-list-alt'></span>  $note</p>
    <p><span class='glyphicon glyphicon-ok-circle'></span>  $classeAccettata</p>
     </div>
-    <button class='w3-button w3-block w3-dark-grey'><span class='glyphicon glyphicon-open'></span> Prenota</button>
+    <button class='w3-button w3-block w3-dark-grey' name='$i' type='submit'><span class='glyphicon glyphicon-open'></span> Prenota</button>
     <button class='w3-button w3-block w3-dark-grey'><span class='glyphicon glyphicon-heart-empty'></span>  Aggiungi ai preferiti</button>
-
+    </form>
   </div>
 </div>
    </center>
@@ -109,7 +112,7 @@ while(($table = mysqli_fetch_array($risp)))
 
 
 
-
+$i++;
  }
 
        

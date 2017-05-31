@@ -29,7 +29,9 @@ and open the template in the editor.
                     <form action="#" method="POST">
                 <?php
 require 'connect.php';
-$x=1;
+$query2 = mysqli_query($link, "SELECT MIN(ID) AS idMin FROM prenotazioni") or die(mysqli_error($link)); 
+$idMin = mysqli_fetch_array($query2) ;
+$x=$idMin['idMin'];
 $query = mysqli_query($link, "SELECT * FROM prenotazioni") or die(mysqli_error($link));
 while($result = mysqli_fetch_array($query))
     {
